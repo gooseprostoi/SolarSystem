@@ -9,6 +9,8 @@ from solar_objects import *
 import thorpy
 import time
 import numpy as np
+import tkinter.filedialog
+import os
 
 timer = None
 
@@ -21,7 +23,7 @@ model_time = 0
 """Физическое время от начала расчёта.
 Тип: float"""
 
-time_scale = 1000000000 #1000
+time_scale = 1000 #1000
 """Шаг по времени при моделировании.
 Тип: float"""
 
@@ -67,8 +69,9 @@ def open_file():
     global browser
     global model_time
 
+
     model_time = 0.0
-    in_filename = "solar_system.txt"
+    in_filename = tkinter.filedialog.askopenfilename(initialdir=os.path.dirname(__file__) + "/for_models")
     space_objects = read_space_objects_data_from_file(in_filename)
     max_distance = max([max(abs(obj.obj.x), abs(obj.obj.y)) for obj in space_objects])
     calculate_scale_factor(max_distance)

@@ -26,15 +26,6 @@ def calculate_force(body, space_objects):
         F = (-1) * (10**(-6) * body.m * obj.m) / r ** 2
         body.Fx += (-1) * (gravitational_constant * body.m * obj.m * (body.x - obj.x)) / r ** 3
         body.Fy += (-1) * (gravitational_constant * body.m * obj.m * (body.y - obj.y)) / r ** 3
-        #if obj.x != body.x:
-        #    alpha = math.atan((-body.y + obj.y) / (body.x - obj.x))
-        #elif body.y <= obj.y:
-        #    alpha = math.pi / 2
-        #else:
-        #    alpha = -math.pi / 2
-
-        if body.m == 5.974E24 and obj.m == 1.98892E30:
-            print(body.Fx)
 
 
 def move_space_object(body, dt):
